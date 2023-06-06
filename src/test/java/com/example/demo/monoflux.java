@@ -15,10 +15,10 @@ public class monoflux {
     public void testmono()
     {
         //Mono<String> monovar = Mono.just("java");
-        Mono<String> monovar = Mono.just("java").log();
-        //Mono<?> monovar = Mono.just("java")
-                       // .then(Mono.error((new RuntimeException("exception occurred"))))
-                         //       .log();
+        //Mono<String> monovar = Mono.just("java").log();
+        Mono<?> monovar = Mono.just("java")
+                        .then(Mono.error((new RuntimeException("exception occurred"))))
+                                .log();
         monovar.subscribe(System.out::println);
 
     }
